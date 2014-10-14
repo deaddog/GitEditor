@@ -29,11 +29,43 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.box1 = new GitEditor.Box();
+            ((System.ComponentModel.ISupportInitialize)(this.box1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // box1
+            // 
+            this.box1.AutoScrollMinSize = new System.Drawing.Size(27, 14);
+            this.box1.BackBrush = null;
+            this.box1.CharHeight = 14;
+            this.box1.CharWidth = 8;
+            this.box1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.box1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.box1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.box1.IsReplaceMode = false;
+            this.box1.Location = new System.Drawing.Point(0, 0);
+            this.box1.Name = "box1";
+            this.box1.Paddings = new System.Windows.Forms.Padding(0);
+            this.box1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.box1.Size = new System.Drawing.Size(943, 434);
+            this.box1.TabIndex = 1;
+            this.box1.Zoom = 100;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(943, 434);
+            this.Controls.Add(this.box1);
+            this.Name = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.box1)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private Box box1;
     }
 }
 
