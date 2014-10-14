@@ -19,6 +19,8 @@ namespace GitEditor
         public Form1()
         {
             InitializeComponent();
+
+            box1.KeyDown += (s, e) => KeyDown(e);
         }
 
         public Form1(string filepath)
@@ -39,6 +41,12 @@ namespace GitEditor
 
                 this.box1.Text = text;
             }
+        }
+
+        private void KeyDown(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
         }
 
         protected override void OnClosing(CancelEventArgs e)
