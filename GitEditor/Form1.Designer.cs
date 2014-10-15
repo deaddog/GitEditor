@@ -35,13 +35,14 @@
             // 
             // box1
             // 
-            this.box1.AutoScrollMinSize = new System.Drawing.Size(27, 14);
+            this.box1.AutoScrollMinSize = new System.Drawing.Size(25, 14);
             this.box1.BackBrush = null;
             this.box1.CharHeight = 14;
-            this.box1.CharWidth = 8;
+            this.box1.CharWidth = 7;
             this.box1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.box1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.box1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.box1.Font = new System.Drawing.Font("Consolas", 9F);
             this.box1.IsReplaceMode = false;
             this.box1.Location = new System.Drawing.Point(0, 0);
             this.box1.Name = "box1";
