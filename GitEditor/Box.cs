@@ -10,10 +10,10 @@ namespace GitEditor
 {
     public class Box : FastColoredTextBox
     {
-        private TextStyle add = new TextStyle(Brushes.Green, null, FontStyle.Regular);
+        private TextStyle add = new TextStyle(Brushes.Lime, null, FontStyle.Regular);
         private TextStyle remove = new TextStyle(Brushes.Red, null, FontStyle.Regular);
         private TextStyle comment = new TextStyle(Brushes.Orange, null, FontStyle.Regular);
-        private TextStyle stuff = new TextStyle(Brushes.Purple, null, FontStyle.Regular);
+        private TextStyle stuff = new TextStyle(Brushes.BlueViolet, null, FontStyle.Regular);
 
         public Box() : base() { this.TextChangedDelayed += Box_TextChangedDelayed; }
 

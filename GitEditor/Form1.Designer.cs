@@ -37,17 +37,23 @@
             // 
             this.box1.AutoScrollMinSize = new System.Drawing.Size(25, 14);
             this.box1.BackBrush = null;
+            this.box1.BackColor = System.Drawing.Color.Black;
+            this.box1.CaretColor = System.Drawing.Color.White;
             this.box1.CharHeight = 14;
             this.box1.CharWidth = 7;
             this.box1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.box1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.box1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.box1.Font = new System.Drawing.Font("Consolas", 9F);
+            this.box1.ForeColor = System.Drawing.Color.LightGray;
+            this.box1.IndentBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.box1.IsReplaceMode = false;
+            this.box1.LineNumberColor = System.Drawing.Color.PowderBlue;
             this.box1.Location = new System.Drawing.Point(0, 0);
             this.box1.Name = "box1";
             this.box1.Paddings = new System.Windows.Forms.Padding(0);
             this.box1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.box1.ServiceLinesColor = System.Drawing.Color.PowderBlue;
             this.box1.Size = new System.Drawing.Size(943, 434);
             this.box1.TabIndex = 1;
             this.box1.Zoom = 100;
