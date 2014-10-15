@@ -52,7 +52,7 @@
             this.box1.Location = new System.Drawing.Point(0, 0);
             this.box1.Name = "box1";
             this.box1.Paddings = new System.Windows.Forms.Padding(0);
-            this.box1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.box1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(135)))), ((int)(((byte)(206)))), ((int)(((byte)(235)))));
             this.box1.ServiceLinesColor = System.Drawing.Color.PowderBlue;
             this.box1.Size = new System.Drawing.Size(943, 434);
             this.box1.TabIndex = 1;
