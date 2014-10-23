@@ -15,9 +15,9 @@ namespace GitEditor
         private TextStyle comment = new TextStyle(Brushes.Orange, null, FontStyle.Regular);
         private TextStyle stuff = new TextStyle(Brushes.BlueViolet, null, FontStyle.Regular);
 
-        public Box() : base() { this.TextChangedDelayed += Box_TextChangedDelayed; }
+        public Box() : base() { this.TextChanged += Box_TextChanged; }
 
-        void Box_TextChangedDelayed(object sender, TextChangedEventArgs e)
+        void Box_TextChanged(object sender, TextChangedEventArgs e)
         {
             this.Range.ClearStyle(add, remove, comment, stuff);
 
