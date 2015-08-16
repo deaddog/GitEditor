@@ -80,6 +80,8 @@ namespace GitEditor
 
                 text = string.Join("\r\n", lines);
             }
+            else
+                box1.Coloring = new PatchColoring();
         }
 
         private void KeyDown(KeyEventArgs e)
