@@ -34,21 +34,29 @@ namespace GitEditor
         public Form1(string filepath)
             : this()
         {
+            string text;
             if (!File.Exists(filepath))
             {
                 this.filepath = null;
+                text = string.Empty;
             }
             else
             {
                 this.filepath = filepath;
-                string text = File.ReadAllText(filepath);
-                isCrLf = text.Contains("\r\n");
-
-                if (!isCrLf)
-                    text = text.Replace("\n", "\r\n");
-
-                this.box1.Text = text;
+                text = File.ReadAllText(filepath);
             }
+            isCrLf = text.Contains("\r\n");
+
+            if (!isCrLf)
+                text = text.Replace("\n", "\r\n");
+
+            preProcess(ref text);
+
+            this.box1.Text = text;
+        }
+
+        private void preProcess(ref string text)
+        {
         }
 
         private void KeyDown(KeyEventArgs e)
