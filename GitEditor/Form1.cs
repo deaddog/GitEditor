@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace GitEditor
@@ -15,6 +11,18 @@ namespace GitEditor
     {
         private string filepath;
         private bool isCrLf;
+
+        private static string shaRegex(string name = null)
+        {
+            if (name == null || name.Length == 0)
+                return "[a-z0-9]{7,}";
+            else
+                return "(?<" + name + ">" + shaRegex(null) + ")";
+        }
+        private static bool isRebase(string text)
+        {
+            return Regex.IsMatch(text, "^pick " + shaRegex());
+        }
 
         public Form1()
         {
