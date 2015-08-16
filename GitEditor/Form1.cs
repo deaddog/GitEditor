@@ -79,6 +79,7 @@ namespace GitEditor
                 }
 
                 text = string.Join("\r\n", lines);
+                box1.Coloring = new RebaseColoring();
             }
             else
                 box1.Coloring = new PatchColoring();
