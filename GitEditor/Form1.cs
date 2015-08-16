@@ -57,6 +57,29 @@ namespace GitEditor
 
         private void preProcess(ref string text)
         {
+            if (isRebase(text))
+            {
+                List<string> lines = new List<string>(text.Split(new string[] { "\r\n" }, StringSplitOptions.None));
+
+                for (int i = 0; i < lines.Count; i++)
+                {
+                    var fixMatch = Regex.Match(lines[i], "^pick " + shaRegex("fix") + " fix for " + shaRegex("fixing"));
+                    if (fixMatch.Success)
+                    {
+                        string find = fixMatch.Groups["fixing"].Value;
+                        for (int j = 0; j < i; j++)
+                            if (lines[j].StartsWith("pick " + find))
+                            {
+                                lines.Insert(j + 1, "fixup " + lines[i].Substring(5));
+                                lines.RemoveAt(i + 1);
+
+                                break;
+                            }
+                    }
+                }
+
+                text = string.Join("\r\n", lines);
+            }
         }
 
         private void KeyDown(KeyEventArgs e)
