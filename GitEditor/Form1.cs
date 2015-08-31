@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -60,23 +61,38 @@ namespace GitEditor
             if (isRebase(text))
             {
                 List<string> lines = new List<string>(text.Split(new string[] { "\r\n" }, StringSplitOptions.None));
+                List<RebaseAction> actions = new List<RebaseAction>();
 
-                for (int i = 0; i < lines.Count; i++)
                 {
-                    var fixMatch = Regex.Match(lines[i], "^pick " + shaRegex("fix") + " fix for " + shaRegex("fixing"));
-                    if (fixMatch.Success)
+                    RebaseAction action;
+                    while (RebaseAction.TryParse(lines[0], out action))
                     {
-                        string find = fixMatch.Groups["fixing"].Value;
+                        actions.Add(action);
+                        lines.RemoveAt(0);
+                    }
+                }
+
+                for (int i = 0; i < actions.Count; i++)
+                {
+                    var match = Regex.Match(actions[i].Message, "^fix for (?<fixing>[a-z0-9]{7,})");
+                    if (match.Success)
+                    {
+                        var fix = actions[i];
+                        string find = match.Groups["fixing"].Value;
                         for (int j = 0; j < i; j++)
-                            if (lines[j].StartsWith("pick " + find))
+                            if (actions[j].IsSha(find))
                             {
-                                lines.Insert(j + 1, "fixup " + lines[i].Substring(5));
-                                lines.RemoveAt(i + 1);
+                                fix.Action = RebaseAction.Actions.fixup;
+                                actions.RemoveAt(i);
+                                actions.Insert(j + 1, fix);
 
                                 break;
                             }
                     }
                 }
+
+                lines.InsertRange(0, actions.Select(x => x.ToString()));
+                actions.Clear();
 
                 text = string.Join("\r\n", lines);
                 box1.Coloring = new RebaseColoring();
